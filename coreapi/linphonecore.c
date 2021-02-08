@@ -6950,6 +6950,8 @@ static void _linphone_core_stop_async_end(LinphoneCore *lc) {
 #endif
 
 	linphone_core_set_state(lc, LinphoneGlobalOff, "Off");
+	//linphone_core_enter_background(lc);
+	
 }
 
 static void _linphone_core_stop(LinphoneCore *lc) {

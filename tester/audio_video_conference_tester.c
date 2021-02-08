@@ -1878,9 +1878,10 @@ static void set_video_in_call(LinphoneCoreManager* m1, LinphoneCoreManager* m2, 
 			linphone_call_accept_update(m2_calls_m1, m2_params);
 			linphone_call_params_unref(m2_params);
 		}
-		BC_ASSERT_TRUE(wait_for(m1->lc, m2->lc, &m1->stat.number_of_LinphoneCallUpdating, initial_m1_stat.number_of_LinphoneCallUpdating + 1));
-		BC_ASSERT_TRUE(wait_for(m1->lc, m2->lc, &m2->stat.number_of_LinphoneCallStreamsRunning, initial_m2_stat.number_of_LinphoneCallStreamsRunning + 1));
-		BC_ASSERT_TRUE(wait_for(m1->lc, m2->lc, &m1->stat.number_of_LinphoneCallStreamsRunning, initial_m1_stat.number_of_LinphoneCallStreamsRunning + 1));
+		
+		BC_ASSERT_TRUE(wait_for_until(m1->lc, m2->lc, &m1->stat.number_of_LinphoneCallUpdating, initial_m1_stat.number_of_LinphoneCallUpdating + 1, 2000));
+		BC_ASSERT_TRUE(wait_for_until(m1->lc, m2->lc, &m2->stat.number_of_LinphoneCallStreamsRunning, initial_m2_stat.number_of_LinphoneCallStreamsRunning + 1, 2000));
+		BC_ASSERT_TRUE(wait_for_until(m1->lc, m2->lc, &m1->stat.number_of_LinphoneCallStreamsRunning, initial_m1_stat.number_of_LinphoneCallStreamsRunning + 1, 2000));
 
 		// Wait for first frame if video is enabled
 		if (exp_video_enabled) {
@@ -2190,6 +2191,7 @@ static void update_conf_params_during_conference(void) {
 
 		LinphoneCall * participant_call = linphone_core_get_current_call(c);
 		BC_ASSERT_PTR_NOT_NULL(participant_call);
+		if (participant_call) {
 
 		// Remote  conference
 		BC_ASSERT_PTR_NOT_NULL(linphone_call_get_conference(participant_call));
@@ -2209,6 +2211,8 @@ static void update_conf_params_during_conference(void) {
 			bctbx_list_t *participants = linphone_conference_get_participant_list(pconference);
 			BC_ASSERT_EQUAL((unsigned int)bctbx_list_size(participants), no_participants, unsigned int, "%u");
 			bctbx_list_free_with_data(participants, (void(*)(void *))linphone_participant_unref);
+		}
+
 		}
 	}
 
