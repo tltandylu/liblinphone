@@ -247,7 +247,7 @@ LINPHONE_PUBLIC void linphone_tunnel_remove_server(LinphoneTunnel *tunnel, Linph
 /**
  * Get added servers
  * @param tunnel #LinphoneTunnel object @notnil
- * @return \bctbx_list{LinphoneTunnelConfig} @maybenil
+ * @return The list of servers. \bctbx_list{LinphoneTunnelConfig} @maybenil
  */
 LINPHONE_PUBLIC const bctbx_list_t *linphone_tunnel_get_servers(const LinphoneTunnel *tunnel);
 

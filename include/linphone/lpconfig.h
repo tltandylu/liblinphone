@@ -151,8 +151,8 @@ LINPHONE_PUBLIC const char *linphone_config_get_string(const LinphoneConfig *con
  * @param config A #LinphoneConfig object @notnil
  * @param section The section from which to retrieve a configuration item @notnil
  * @param key The name of the configuration item to retrieve @notnil
- * @param default_list \bctbx_list{const char *} @maybenil
- * @return \bctbx_list{const char *} @maybenil
+ * @param default_list The list to return when the key doesn't exist. \bctbx_list{const char *} @maybenil
+ * @return A list of strings. \bctbx_list{const char *} @maybenil
  */
 LINPHONE_PUBLIC bctbx_list_t * linphone_config_get_string_list(const LinphoneConfig *config, const char *section, const char *key, bctbx_list_t *default_list);
 
@@ -233,7 +233,7 @@ LINPHONE_PUBLIC void linphone_config_set_string(LinphoneConfig *config,const cha
  * @param config A #LinphoneConfig object @notnil
  * @param section The name of the section to put the configuration item into @notnil
  * @param key The name of the configuration item to set @notnil
- * @param value \bctbx_list{const char *} The value to set. @maybenil
+ * @param value The value to set. \bctbx_list{const char *} @maybenil
  */
 LINPHONE_PUBLIC void linphone_config_set_string_list(LinphoneConfig *config, const char *section, const char *key, const bctbx_list_t *value);
 
@@ -340,7 +340,7 @@ LINPHONE_PUBLIC void linphone_config_clean_entry(LinphoneConfig *config, const c
 /**
  * Returns the list of sections' names in the LinphoneConfig.
  * @param config The #LinphoneConfig object @notnil
- * @return \bctbx_list{char *} a null terminated static array of strings @maybenil
+ * @return A list of strings. \bctbx_list{char *} @maybenil
 **/
 LINPHONE_PUBLIC const bctbx_list_t * linphone_config_get_sections_names_list(LinphoneConfig *config);
 
@@ -348,7 +348,7 @@ LINPHONE_PUBLIC const bctbx_list_t * linphone_config_get_sections_names_list(Lin
  * Returns the list of keys' names for a section in the LinphoneConfig.
  * @param config The #LinphoneConfig object @notnil
  * @param section The section name @notnil
- * @return \bctbx_list{char *} a null terminated static array of strings @maybenil
+ * @return A list of strings. \bctbx_list{char *} @maybenil
 **/
 LINPHONE_PUBLIC const bctbx_list_t * linphone_config_get_keys_names_list(LinphoneConfig *config, const char *section );
 

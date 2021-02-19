@@ -253,7 +253,7 @@ LINPHONE_PUBLIC void linphone_proxy_config_set_realm(LinphoneProxyConfig *proxy_
 /**
  * Gets the list of the routes set for this proxy config.
  * @param proxy_config #LinphoneProxyConfig object. @notnil
- * @return \bctbx_list{const char *} the list of routes. @maybenil
+ * @return The list of routes as string. \bctbx_list{const char *} @maybenil
  */
 LINPHONE_PUBLIC const bctbx_list_t* linphone_proxy_config_get_routes(const LinphoneProxyConfig *proxy_config);
 

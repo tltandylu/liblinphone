@@ -319,6 +319,8 @@ class Parser:
 				paragraphs.append(paragraph)
 				paragraphs.append(self._parse_parameter_list(partNode))
 				paragraph = Paragraph()
+			elif partNode.tag == 'bctbxlist':
+				pass
 			else:
 				text = partNode.text
 				if text is not None:

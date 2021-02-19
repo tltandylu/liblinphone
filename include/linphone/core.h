@@ -1652,7 +1652,7 @@ LINPHONE_PUBLIC bool_t linphone_core_get_dns_set_by_app(LinphoneCore *core);
  * Forces liblinphone to use the supplied list of dns servers, instead of system's ones
  * and set dns_set_by_app at true or false according to value of servers list.
  * @param core #LinphoneCore object. @notnil
- * @param servers \bctbx_list{const char *} A list of strings containing the IP addresses of DNS servers to be used.
+ * @param servers A list of strings containing the IP addresses of DNS servers to be used. \bctbx_list{const char *}
  * Setting to NULL restores default behaviour, which is to use the DNS server list provided by the system.
  * The list is copied internally. @maybenil
  * @ingroup media_parameters
@@ -1662,7 +1662,7 @@ LINPHONE_PUBLIC void linphone_core_set_dns_servers_app(LinphoneCore *core, const
 /**
  * Forces liblinphone to use the supplied list of dns servers, instead of system's ones.
  * @param core #LinphoneCore object. @notnil
- * @param servers \bctbx_list{const char *} A list of strings containing the IP addresses of DNS servers to be used.
+ * @param servers A list of strings containing the IP addresses of DNS servers to be used. \bctbx_list{const char *}
  * Setting to NULL restores default behaviour, which is to use the DNS server list provided by the system.
  * The list is copied internally. @maybenil
  * @ingroup media_parameters
@@ -1672,8 +1672,8 @@ LINPHONE_PUBLIC void linphone_core_set_dns_servers(LinphoneCore *core, const bct
 /**
  * Return the list of the available audio payload types.
  * @param core The core. @notnil
- * @return \bctbx_list{LinphonePayloadType} A freshly allocated list of the available payload types. The list
- * must be destroyed with bctbx_list_free() after usage. The elements of the list haven't to be unref. @maybenil
+ * @return A freshly allocated list of the available payload types. The list
+ * must be destroyed with bctbx_list_free() after usage. The elements of the list haven't to be unref. @bctbx_list{LinphonePayloadType} @maybenil
  * @ingroup media_parameters
  */
 LINPHONE_PUBLIC bctbx_list_t *linphone_core_get_audio_payload_types(LinphoneCore *core);
@@ -1681,8 +1681,8 @@ LINPHONE_PUBLIC bctbx_list_t *linphone_core_get_audio_payload_types(LinphoneCore
 /**
  * Redefine the list of the available payload types.
  * @param core The core. @notnil
- * @param payload_types \bctbx_list{LinphonePayloadType} The new list of payload types. The core does not take
- * ownership on it. @maybenil
+ * @param payload_types The new list of payload types. The core does not take
+ * ownership on it. \bctbx_list{LinphonePayloadType} @maybenil
  * @ingroup media_parameters
  */
 LINPHONE_PUBLIC void linphone_core_set_audio_payload_types(LinphoneCore *core, const bctbx_list_t *payload_types);
@@ -1690,8 +1690,9 @@ LINPHONE_PUBLIC void linphone_core_set_audio_payload_types(LinphoneCore *core, c
 /**
  * Return the list of the available video payload types.
  * @param core The core. @notnil
- * @return \bctbx_list{LinphonePayloadType} A freshly allocated list of the available payload types. The list
- * must be destroyed with bctbx_list_free() after usage. The elements of the list haven't to be unref. @maybenil
+ * @return A freshly allocated list of the available payload types. The list
+ * must be destroyed with bctbx_list_free() after usage. The elements of the
+ * list haven't to be unref. @bctbx_list{LinphonePayloadType} @maybenil
  * @ingroup media_parameters
  */
 LINPHONE_PUBLIC bctbx_list_t *linphone_core_get_video_payload_types(LinphoneCore *core);
@@ -1699,8 +1700,8 @@ LINPHONE_PUBLIC bctbx_list_t *linphone_core_get_video_payload_types(LinphoneCore
 /**
  * Redefine the list of the available video payload types.
  * @param core The core. @notnil
- * @param payload_types \bctbx_list{LinphonePayloadType} The new list of codecs. The core does not take
- * ownership on it. @maybenil
+ * @param payload_types The new list of codecs. The core does not take
+ * ownership on it. \bctbx_list{LinphonePayloadType} @maybenil
  * @ingroup media_parameters
  */
 LINPHONE_PUBLIC void linphone_core_set_video_payload_types(LinphoneCore *core, const bctbx_list_t *payload_types);
@@ -1708,8 +1709,9 @@ LINPHONE_PUBLIC void linphone_core_set_video_payload_types(LinphoneCore *core, c
 /**
  * Return the list of the available text payload types.
  * @param core The core. @notnil
- * @return \bctbx_list{LinphonePayloadType} A freshly allocated list of the available payload types. The list
- * must be destroyed with bctbx_list_free() after usage. The elements of the list haven't to be unref. @maybenil
+ * @return A freshly allocated list of the available payload types. The list
+ * must be destroyed with bctbx_list_free() after usage. The elements of the list
+ * haven't to be unref. @bctbx_list{LinphonePayloadType} @maybenil
  * @ingroup media_parameters
  */
 LINPHONE_PUBLIC bctbx_list_t *linphone_core_get_text_payload_types(LinphoneCore *core);
@@ -1717,8 +1719,8 @@ LINPHONE_PUBLIC bctbx_list_t *linphone_core_get_text_payload_types(LinphoneCore 
 /**
  * Redefine the list of the available payload types.
  * @param core The core. @notnil
- * @param payload_types \bctbx_list{LinphonePayloadType} The new list of payload types. The core does not take
- * ownership on it. @maybenil
+ * @param payload_types The new list of payload types. The core does not take
+ * ownership on it. \bctbx_list{LinphonePayloadType} @maybenil
  * @ingroup media_parameters
  */
 LINPHONE_PUBLIC void linphone_core_set_text_payload_types(LinphoneCore *core, const bctbx_list_t *payload_types);
@@ -1792,7 +1794,7 @@ LINPHONE_PUBLIC void linphone_core_remove_proxy_config(LinphoneCore *core, Linph
 /**
  * Returns an unmodifiable list of entered proxy configurations.
  * @param core The #LinphoneCore object @notnil
- * @return \bctbx_list{LinphoneProxyConfig} @maybenil
+ * @return A list of #LinphoneProxyConfig. @bctbx_list{LinphoneProxyConfig} @maybenil
 **/
 LINPHONE_PUBLIC const bctbx_list_t *linphone_core_get_proxy_config_list(const LinphoneCore *core);
 
@@ -1848,7 +1850,7 @@ LINPHONE_PUBLIC void linphone_core_remove_auth_info(LinphoneCore *core, const Li
 /**
  * Returns an unmodifiable list of currently entered #LinphoneAuthInfo.
  * @param core The #LinphoneCore object. @notnil
- * @return \bctbx_list{LinphoneAuthInfo} @maybenil
+ * @return A list of #LinphoneAuthInfo. \bctbx_list{LinphoneAuthInfo} @maybenil
  * @ingroup authentication
  */
 LINPHONE_PUBLIC const bctbx_list_t *linphone_core_get_auth_info_list(const LinphoneCore *core);
@@ -2463,7 +2465,8 @@ LINPHONE_PUBLIC LinphoneNatPolicy * linphone_core_get_nat_policy(const LinphoneC
 /**
  * Gets the list of the available sound devices.
  * @param core #LinphoneCore object @notnil
- * @return \bctbx_list{char *} An unmodifiable array of strings contanining the names of the available sound devices that is NULL terminated. @maybenil
+ * @return An unmodifiable array of strings contanining the names of the available
+ * sound devices that is NULL terminated. \bctbx_list{char *} @maybenil
  * @ingroup media_parameters
 **/
 LINPHONE_PUBLIC bctbx_list_t * linphone_core_get_sound_devices_list(const LinphoneCore *core);
@@ -2840,7 +2843,7 @@ LINPHONE_PUBLIC void linphone_core_set_rtp_no_xmit_on_audio_mute(LinphoneCore *c
 /**
  * Get the list of call logs (past calls).
  * @param core #LinphoneCore object @notnil
- * @return \bctbx_list{LinphoneCallLog} @maybenil
+ * @return A list of #LinphoneCallLog. \bctbx_list{LinphoneCallLog} @maybenil
 **/
 LINPHONE_PUBLIC const bctbx_list_t * linphone_core_get_call_logs(LinphoneCore *core);
 
@@ -2850,7 +2853,7 @@ LINPHONE_PUBLIC const bctbx_list_t * linphone_core_get_call_logs(LinphoneCore *c
  * @param core #LinphoneCore object. @notnil
  * @param peer_address The remote #LinphoneAddress object. @notnil
  * @param local_address The local #LinphoneAddress object @notnil
- * @return \bctbx_list{LinphoneCallLog} @tobefreed @maybenil
+ * @return A list of #LinphoneCallLog. \bctbx_list{LinphoneCallLog} @tobefreed @maybenil
 **/
 LINPHONE_PUBLIC bctbx_list_t *linphone_core_get_call_history_2(
 	LinphoneCore *core,
@@ -3262,7 +3265,7 @@ LINPHONE_PUBLIC void linphone_core_reload_video_devices(LinphoneCore *core);
 /**
  * Gets the list of the available video capture devices.
  * @param core #LinphoneCore object @notnil
- * @return \bctbx_list{char *} An unmodifiable array of strings contanining the names of the available video capture devices that is NULL terminated. @maybenil
+ * @return An unmodifiable array of strings contanining the names of the available video capture devices that is NULL terminated. \bctbx_list{char *} @maybenil
  * @ingroup media_parameters
 **/
 LINPHONE_PUBLIC bctbx_list_t * linphone_core_get_video_devices_list(const LinphoneCore *core);
@@ -3729,7 +3732,7 @@ LINPHONE_PUBLIC int linphone_core_get_calls_nb(const LinphoneCore *core);
  * Similarly the #LinphoneCall objects inside it might be destroyed without prior notice.
  * To hold references to #LinphoneCall object into your program, you must use linphone_call_ref().
  * @param core The #LinphoneCore object @notnil
- * @return \bctbx_list{LinphoneCall} @maybenil
+ * @return A list of #LinphoneCall \bctbx_list{LinphoneCall} @maybenil
  * @ingroup call_control
 **/
 LINPHONE_PUBLIC const bctbx_list_t *linphone_core_get_calls(LinphoneCore *core);
@@ -4294,7 +4297,7 @@ LINPHONE_PUBLIC const char * linphone_core_get_file_transfer_server(LinphoneCore
 /**
  * Returns a null terminated table of strings containing the file format extension supported for call recording.
  * @param core the core @notnil
- * @return \bctbx_list{char *} the supported formats, typically 'wav' and 'mkv' @notnil
+ * @return The supported formats, typically 'wav' and 'mkv'. \bctbx_list{char *} @notnil
  * @ingroup media_parameters
 **/
 LINPHONE_PUBLIC bctbx_list_t * linphone_core_get_supported_file_formats_list(LinphoneCore *core);
@@ -4713,7 +4716,7 @@ LINPHONE_PUBLIC void linphone_core_remove_content_type_support(LinphoneCore *cor
 /**
  * Set the linphone specs list value telling what functionalities the linphone client supports.
  * @param core #LinphoneCore object @notnil
- * @param specs \bctbx_list{char *} The list of string specs to set @maybenil
+ * @param specs The list of string specs to set. \bctbx_list{char *} @maybenil
  * @ingroup initializing
  */
 LINPHONE_PUBLIC void linphone_core_set_linphone_specs_list (LinphoneCore *core, const bctbx_list_t *specs);
@@ -4737,7 +4740,7 @@ LINPHONE_PUBLIC void linphone_core_remove_linphone_spec (LinphoneCore *core, con
 /**
  * Get the list of linphone specs string values representing what functionalities the linphone client supports
  * @param core #LinphoneCore object @notnil
- * @return \bctbx_list{char *} a list of supported specs. The list must be freed with bctbx_list_free() after usage @maybenil
+ * @return A list of supported specs. The list must be freed with bctbx_list_free() after usage. \bctbx_list{char *} @maybenil
  * @ingroup initializing
  */
 LINPHONE_PUBLIC const bctbx_list_t *linphone_core_get_linphone_specs_list (LinphoneCore *core);
@@ -4753,7 +4756,7 @@ LINPHONE_PUBLIC const bctbx_list_t *linphone_core_get_linphone_specs_list (Linph
  * @param core A #LinphoneCore object @notnil
  * @param params The chat room creation parameters #LinphoneChatRoomParams @maybenil
  * @param localAddr #LinphoneAddress representing the local proxy configuration to use for the chat room creation or NULL @maybenil
- * @param participants \bctbx_list{LinphoneAddress} The initial list of participants of the chat room @notnil
+ * @param participants The initial list of participants of the chat room. \bctbx_list{LinphoneAddress} @notnil
  * @return The newly created chat room (can be an existing one if backend is Basic) or NULL. @maybenil
  */
 LINPHONE_PUBLIC LinphoneChatRoom *linphone_core_create_chat_room_6(LinphoneCore *core, const LinphoneChatRoomParams *params, const LinphoneAddress *localAddr, const bctbx_list_t *participants);
@@ -4765,7 +4768,7 @@ LINPHONE_PUBLIC LinphoneChatRoom *linphone_core_create_chat_room_6(LinphoneCore 
  * @param params The chat room parameters to match #LinphoneChatRoomParams or NULL @maybenil
  * @param localAddr #LinphoneAddress representing the local proxy configuration or NULL @maybenil
  * @param remoteAddr #LinphoneAddress to search for or NULL @maybenil
- * @param participants \bctbx_list{LinphoneAddress} The participants that must be present in the chat room to find @maybenil
+ * @param participants The participants that must be present in the chat room to find. \bctbx_list{LinphoneAddress} @maybenil
  * @return A matching chat room or NULL if none matches. @maybenil
  */
 LINPHONE_PUBLIC LinphoneChatRoom *linphone_core_search_chat_room(const LinphoneCore *core, const LinphoneChatRoomParams *params, const LinphoneAddress *localAddr, const LinphoneAddress *remoteAddr, const bctbx_list_t *participants);
@@ -4994,7 +4997,7 @@ LINPHONE_PUBLIC LinphoneFriend *linphone_core_find_friend_by_phone_number(const 
  * Search all #LinphoneFriend matching an address.
  * @param core #LinphoneCore object. @notnil
  * @param address The address to use to search the friends. @notnil
- * @return \bctbx_list{LinphoneFriend} a list of #LinphoneFriend corresponding to the given address. @maybenil
+ * @return A list of #LinphoneFriend corresponding to the given address. \bctbx_list{LinphoneFriend} @maybenil
  */
 LINPHONE_PUBLIC bctbx_list_t *linphone_core_find_friends(const LinphoneCore *core, const LinphoneAddress *address);
 
@@ -5047,7 +5050,7 @@ LINPHONE_PUBLIC void linphone_core_remove_friend_list(LinphoneCore *core, Linpho
 /**
  * Retrieves the list of #LinphoneFriendList from the core.
  * @param core #LinphoneCore object @notnil
- * @return \bctbx_list{LinphoneFriendList} a list of #LinphoneFriendList. @maybenil
+ * @return A list of #LinphoneFriendList. \bctbx_list{LinphoneFriendList} @maybenil
  */
 LINPHONE_PUBLIC const bctbx_list_t * linphone_core_get_friends_lists(const LinphoneCore *core);
 
@@ -5085,7 +5088,7 @@ LINPHONE_PUBLIC bool_t linphone_core_is_friend_list_subscription_enabled(Linphon
  * @param core #LinphoneCore object @notnil
  * @param filter Chars used for the filter* @notnil
  * @param sip_only Only sip address or not
- * @return \bctbx_list{LinphoneAddress} a list of filtered #LinphoneAddress + the #LinphoneAddress created with the filter. @maybenil
+ * @return A list of filtered #LinphoneAddress + the #LinphoneAddress created with the filter. \bctbx_list{LinphoneAddress} @maybenil
 **/
 LINPHONE_PUBLIC const bctbx_list_t * linphone_core_find_contacts_by_char(LinphoneCore *core, const char *filter, bool_t sip_only);
 
@@ -5864,7 +5867,7 @@ LINPHONE_PUBLIC LINPHONE_DEPRECATED LinphoneAddress *linphone_core_get_primary_c
 /**
  * Returns the list of available audio codecs.
  * @param core The #LinphoneCore object
- * @return \bctbx_list{OrtpPayloadType}
+ * @return A list of #OrtpPayloadType. @bctbx_list{OrtpPayloadType}
  *
  * This list is unmodifiable. The ->data field of the bctbx_list_t points a PayloadType
  * structure holding the codec information.
@@ -5879,12 +5882,11 @@ LINPHONE_PUBLIC LINPHONE_DEPRECATED const bctbx_list_t *linphone_core_get_audio_
 /**
  * Sets the list of audio codecs.
  * @param core The #LinphoneCore object
- * @param codecs \bctbx_list{OrtpPayloadType}
+ * @param codecs The new list of codecs. The list is taken by the #LinphoneCore,
+ * thus the application should not free it. \bctbx_list{OrtpPayloadType}
  * @return 0
- * The list is taken by the #LinphoneCore thus the application should not free it.
- * This list is made of struct PayloadType describing the codec parameters.
- * @ingroup media_parameters
  * @deprecated 31/03/2017 Use linphone_core_set_audio_payload_types() instead.
+ * @ingroup media_parameters
  * @donotwrap
 **/
 LINPHONE_PUBLIC LINPHONE_DEPRECATED LinphoneStatus linphone_core_set_audio_codecs(LinphoneCore *core, bctbx_list_t *codecs);
@@ -5892,7 +5894,7 @@ LINPHONE_PUBLIC LINPHONE_DEPRECATED LinphoneStatus linphone_core_set_audio_codec
 /**
  * Returns the list of available video codecs.
  * @param core The #LinphoneCore object
- * @return \bctbx_list{OrtpPayloadType}
+ * @return A list of #OrtpPayloadType. \bctbx_list{OrtpPayloadType}
  *
  * This list is unmodifiable. The ->data field of the bctbx_list_t points a PayloadType
  * structure holding the codec information.
@@ -5907,13 +5909,11 @@ LINPHONE_PUBLIC LINPHONE_DEPRECATED const bctbx_list_t *linphone_core_get_video_
 /**
  * Sets the list of video codecs.
  * @param core The #LinphoneCore object
- * @param codecs \bctbx_list{OrtpPayloadType}
+ * @param codecs The new list of codecs. The list is taken by the #LinphoneCore,
+ * thus the application should not free it. \bctbx_list{OrtpPayloadType}
  * @return 0
- *
- * The list is taken by the #LinphoneCore thus the application should not free it.
- * This list is made of struct PayloadType describing the codec parameters.
- * @ingroup media_parameters
  * @deprecated 31/03/2017 Use linphone_core_set_video_payload_types() instead.
+ * @ingroup media_parameters
  * @donotwrap
 **/
 LINPHONE_PUBLIC LINPHONE_DEPRECATED LinphoneStatus linphone_core_set_video_codecs(LinphoneCore *core, bctbx_list_t *codecs);
@@ -5921,7 +5921,7 @@ LINPHONE_PUBLIC LINPHONE_DEPRECATED LinphoneStatus linphone_core_set_video_codec
 /**
  * Returns the list of available text codecs.
  * @param core The #LinphoneCore object
- * @return \bctbx_list{OrtpPayloadType}
+ * @return A list of OrtpPayloadType. \bctbx_list{OrtpPayloadType}
  *
  * This list is unmodifiable. The ->data field of the bctbx_list_t points a PayloadType
  * structure holding the codec information.
@@ -5936,15 +5936,13 @@ LINPHONE_PUBLIC LINPHONE_DEPRECATED const bctbx_list_t *linphone_core_get_text_c
 /**
  * Sets the list of text codecs.
  * @param core The #LinphoneCore object
- * @param codecs \bctbx_list{LinphonePayloadType}
+ * @param codecs The new list of codecs. The list is taken by the #LinphoneCore,
+ * thus the application should not free it. \bctbx_list{LinphonePayloadType}
  * @return 0
- *
- * The list is taken by the #LinphoneCore thus the application should not free it.
- * This list is made of struct PayloadType describing the codec parameters.
- * @ingroup media_parameters
  * @deprecated 31/03/2017 Use linphone_core_set_text_payload_types() instead.
+ * @ingroup media_parameters
  * @donotwrap
-**/
+ */
 LINPHONE_PUBLIC LINPHONE_DEPRECATED LinphoneStatus linphone_core_set_text_codecs(LinphoneCore *core, bctbx_list_t *codecs);
 
 /**
@@ -6315,7 +6313,7 @@ LINPHONE_PUBLIC LINPHONE_DEPRECATED bool_t linphone_core_is_mic_muted(LinphoneCo
  * At the contrary of linphone_core_get_call_logs, it is your responsibility to unref the logs and free this list once you are done using it.
  * @param core #LinphoneCore object @notnil
  * @param address #LinphoneAddress object @notnil
- * @return \bctbx_list{LinphoneCallLog} @tobefreed @maybenil
+ * @return A list of #LinphoneCallLog. \bctbx_list{LinphoneCallLog} @tobefreed @maybenil
  * @deprecated 29/10/2018 Use #linphone_core_get_call_history_2 instead.
  * @ingroup call_logs
 **/
@@ -6579,7 +6577,7 @@ LINPHONE_PUBLIC LINPHONE_DEPRECATED LinphoneChatRoom *linphone_core_create_clien
  * @param params The chat room creation parameters #LinphoneChatRoomParams @notnil
  * @param localAddr #LinphoneAddress representing the local proxy configuration to use for the chat room creation @notnil
  * @param subject The subject of the group chat room @notnil
- * @param participants \bctbx_list{LinphoneAddress} The initial list of participants of the chat room @notnil
+ * @param participants The initial list of participants of the chat room \bctbx_list{LinphoneAddress} @notnil
  * @return The newly created chat room. @maybenil
  * @deprecated 02/07/2020, use linphone_core_create_chat_room_6() instead
  * @ingroup chatroom
@@ -6591,7 +6589,7 @@ LINPHONE_PUBLIC LINPHONE_DEPRECATED LinphoneChatRoom *linphone_core_create_chat_
  *
  * @param core A #LinphoneCore object @notnil
  * @param params The chat room creation parameters #LinphoneChatRoomParams @notnil
- * @param participants \bctbx_list{LinphoneAddress} The initial list of participants of the chat room @notnil
+ * @param participants The initial list of participants of the chat room. \bctbx_list{LinphoneAddress} @notnil
  * @return The newly created chat room. @maybenil
  * @deprecated 02/07/2020, use linphone_core_create_chat_room_6() instead
  * @ingroup chatroom
@@ -6602,7 +6600,7 @@ LINPHONE_PUBLIC LINPHONE_DEPRECATED LinphoneChatRoom *linphone_core_create_chat_
  *
  * @param core A #LinphoneCore object @notnil
  * @param subject The subject of the group chat room @notnil
- * @param participants \bctbx_list{LinphoneAddress} The initial list of participants of the chat room @notnil
+ * @param participants The initial list of participants of the chat room. \bctbx_list{LinphoneAddress} @notnil
  * @return The newly created chat room. @maybenil
  * @deprecated 02/07/2020, use linphone_core_create_chat_room_6() instead
  * @ingroup chatroom
@@ -6760,7 +6758,7 @@ LINPHONE_PUBLIC LINPHONE_DEPRECATED void linphone_core_set_presence_info(Linphon
 /**
  * Get Buddy list of #LinphoneFriend
  * @param core #LinphoneCore object
- * @return \bctbx_list{LinphoneFriend}
+ * @return A list of #LinphoneFriend. \bctbx_list{LinphoneFriend}
  * @deprecated 03/02/2017 use linphone_core_get_friends_lists() or linphone_friend_list_get_friends() instead.
  * @donotwrap
  */

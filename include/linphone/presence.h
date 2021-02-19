@@ -372,7 +372,7 @@ LINPHONE_PUBLIC bctbx_list_t * linphone_presence_service_get_service_description
 /**
  * Sets the service descriptions of a presence service.
  * @param service The #LinphonePresenceService object for which to set the contact. @notnil
- * @param descriptions \bctbx_list{char *} The service descriptions. @maybenil
+ * @param descriptions The service descriptions. @bctbx_list{char *} @maybenil
  * @return 0 if successful, a value < 0 in case of error.
  */
 LINPHONE_PUBLIC LinphoneStatus linphone_presence_service_set_service_descriptions(LinphonePresenceService *service, bctbx_list_t *descriptions);

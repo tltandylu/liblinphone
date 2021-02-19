@@ -58,7 +58,7 @@ LINPHONE_PUBLIC void linphone_friend_add_address(LinphoneFriend *linphone_friend
 /**
  * Returns a list of #LinphoneAddress for this friend
  * @param linphone_friend #LinphoneFriend object @notnil
- * @return \bctbx_list{LinphoneAddress} @maybenil
+ * @return A list of #LinphoneAddress. \bctbx_list{LinphoneAddress} @maybenil
  */
 LINPHONE_PUBLIC const bctbx_list_t* linphone_friend_get_addresses(const LinphoneFriend *linphone_friend);
 
@@ -79,7 +79,7 @@ LINPHONE_PUBLIC void linphone_friend_add_phone_number(LinphoneFriend *linphone_f
 /**
  * Returns a list of phone numbers for this friend
  * @param linphone_friend #LinphoneFriend object @notnil
- * @return \bctbx_list{const char *} @maybenil
+ * @return A list of phone numbers as string. \bctbx_list{const char *} @maybenil
  */
 LINPHONE_PUBLIC bctbx_list_t* linphone_friend_get_phone_numbers(const LinphoneFriend *linphone_friend);
 
