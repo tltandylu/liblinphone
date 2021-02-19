@@ -280,10 +280,18 @@ class CTranslator(Translator):
 class JavaTranslator(Translator):
 	def __init__(self):
 		self.nsSep = '.'
-		self.classMemberSep = '.'
+		self._classMemberSep = None # None meams equal to self.nsSep
 		self.keyWordEscapes = {}
 		self.lowerMethodNames = True
 		self.lowerNamespaceNames = True
+
+	@property
+	def classMemberSep(self):
+		return self._classMemberSep if self._classMemberSep is not None else self.nsSep;
+
+	@classMemberSep.setter
+	def classMemberSep(self, sep):
+		self._classMemberSep = sep
 	
 	def translate_class_name(self, name, recursive=False, topAncestor=None):
 		if name.prev is None or not recursive or name.prev is topAncestor:
@@ -360,6 +368,7 @@ class SwiftTranslator(JavaTranslator):
 
 	def translate_class_name(self, name, recursive=False, topAncestor=None):
 		return name.to_camel_case()
+
 
 class CppTranslator(JavaTranslator):
 	def __init__(self):
