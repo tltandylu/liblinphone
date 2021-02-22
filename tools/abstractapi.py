@@ -104,7 +104,7 @@ class Boolean(Constant):
 		return langTranslator.trueConstantToken if self.value else langTranslator.falseConstantToken
 
 
-class Object(object):
+class Object:
 	def __init__(self, name):
 		self.name = name
 		self.parent = None
@@ -491,7 +491,7 @@ class Interface(Namespace):
 		self.instanceMethods.sort()
 
 
-class CParser(object):
+class CParser:
 	def __init__(self, cProject, classBlAppend=[]):
 		self.cBaseType = ['void', 'bool_t', 'char', 'short', 'int', 'long', 'size_t', 'time_t', 'float', 'double', 'LinphoneStatus']
 		self.cListType = 'bctbx_list_t'

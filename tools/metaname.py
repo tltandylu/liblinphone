@@ -21,7 +21,7 @@
 import re
 
 
-class Name(object):
+class Name:
 	camelCaseParsingRegex = re.compile('[A-Z][a-z0-9]*')
 	lowerCamelCaseSplitingRegex = re.compile('([a-z][a-z0-9]*)([A-Z][a-z0-9]*)')
 	
@@ -233,7 +233,7 @@ class NamespaceName(Name):
 		return translator.translate_namespace_name(self, **params)
 
 
-class Translator(object):
+class Translator:
 	instances = {}
 	
 	@staticmethod

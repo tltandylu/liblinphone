@@ -66,7 +66,7 @@ class ChildrenList(list):
 		return children
 
 
-class TreeNode(object):
+class TreeNode:
 	def __init__(self):
 		self.parent = None
 	
@@ -411,7 +411,7 @@ class ReferenceTranslationError(TranslationError):
 		return '{0} reference could not been translated'.format(self.args[0])
 
 
-class Translator(object):
+class Translator:
 	def __init__(self, langCode):
 		self.langCode = langCode
 		self.textWidth = 80
@@ -538,10 +538,10 @@ class DoxygenTranslator(Translator):
 			lines[0] = '@brief ' + lines[0]
 
 	def translate_class_reference(self, ref, **kargs):
-		return '@ref ' + super(DoxygenTranslator, self).translate_reference(ref)
+		return '@ref ' + super().translate_reference(ref)
 
 	def translate_function_reference(self, ref, **kargs):
-		return super(DoxygenTranslator, self).translate_reference(ref) + '()'
+		return super().translate_reference(ref) + '()'
 	
 	def _translate_section(self, section):
 		return '@{0} {1}'.format(
@@ -567,14 +567,14 @@ class JavaDocTranslator(Translator):
 
 
 	def __init__(self):
-		super(JavaDocTranslator, self).__init__('Java')
+		super().__init__(self, 'Java')
 		self.refNameTranslator = JavaDocTranslator.ReferenceTranslator()
 
 	def translate_class_reference(self, ref, **kargs):
-		return '{@link ' + super(JavaDocTranslator, self).translate_reference(ref) + '}'
+		return '{@link ' + super().translate_reference(ref) + '}'
 
 	def translate_function_reference(self, ref, **kargs):
-		return '{@link ' + super(JavaDocTranslator, self).translate_reference(ref) + '}'
+		return '{@link ' + super().translate_reference(ref) + '}'
 	
 	def _translate_section(self, section):
 		if section.kind == 'see':
@@ -601,13 +601,13 @@ class JavaDocTranslator(Translator):
 
 class SwiftDocTranslator(Translator):
 	def __init__(self):
-		super(JavaDocTranslator, self).__init__('Swift')
+		super().__init__(self, 'Swift')
 
 	def translate_class_reference(self, ref, **kargs):
-		return '`{0}`'.format(super(JavaDocTranslator, self).translate_reference(ref))
+		return '`{0}`'.format(super().translate_reference(ref))
 
 	def translate_function_reference(self, ref, **kargs):
-		return super(JavaDocTranslator, self).translate_reference(ref) + '()'
+		return super().translate_reference(ref) + '()'
 
 	def _translate_section(self, section):
 		if section.kind == 'return':
